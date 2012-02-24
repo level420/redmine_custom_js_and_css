@@ -7,12 +7,19 @@ class Hooks  < Redmine::Hook::ViewListener
 
   # Custom styles
   def view_layouts_base_html_head(context = { })
-    prj = context[:project] || return
-    return if prj.nil? 
-    id = prj.identifier
-    if File.file?( "#{ASSETS}/stylesheets/by_project/#{id}.css" )
-      stylesheet_link_tag "by_project/#{id}", :plugin => PLUGIN
+    tags = ''
+    if File.file?( "#{ASSETS}/stylesheets/global.css" )
+      tags = tags + stylesheet_link_tag("global", :plugin => PLUGIN)
     end
+    prj = context[:project]
+    unless prj.nil?
+       id = prj.identifier
+       if File.file?( "#{ASSETS}/stylesheets/by_project/#{id}.css" )
+         tags = tags + stylesheet_link_tag ("by_project/#{id}", :plugin => PLUGIN)
+       end
+    end
+
+    return tags;
   end
 
   # TODO Rewrite code:
