@@ -6,12 +6,15 @@ you can execute custom JavaScript and apply custom CSS Stylesheets to pages.
 Author: Alexander Sapozhnikov http://shoorick.ru/
 E-mail: shoorick-at-cpan-dot-org
 
+Forked by: Dietrich Streifert http://www.visionet.de/
+email: dietrich.streifert-at-visionet-dot-de
+
 == Getting the plugin
 
 A copy can be downloaded/installed/cloned from {GitHub}[http://github.com/shoorick/redmine_custom_js_and_css]
 
 == Usage
-
+* Put your custom global stylesheet global.css into plugin_folder/assets/stylesheets/
 * Put your custom stylesheets named as projectname.css into plugin_folder/assets/stylesheets/by_project
 * Put your custom javascripts names as hookname.js into plugin_folder/assets/javascripts/by_project/projectname
 * Restart Redmine
