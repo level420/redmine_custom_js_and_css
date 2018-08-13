@@ -19,8 +19,10 @@ class Hooks  < Redmine::Hook::ViewListener
        end
     end
     
-    # per user
-    tags = tags + stylesheet_link_tag("by_user/#{User.current.login}", :plugin => PLUGIN)
+    # per user, if the file exists
+    if File.file?( "#{ASSETS}/stylesheets/by_user/#{User.current.login}.css" )
+       tags = tags + stylesheet_link_tag("by_user/#{User.current.login}", :plugin => PLUGIN)
+    end
 
     return tags;
   end
